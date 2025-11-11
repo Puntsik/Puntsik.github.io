@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery - Dashboard Template</title>
+    <!--
+
+    Template 2108 Dashboard
+
+	http://www.tooplate.com/view/2108-dashboard
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/tooplate.css">
+    <style>
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .gallery-img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                    <div class="navbar-brand">
+                        <a href="index.html">
+                            <img src="img/ophelia_icon.png" alt="Icon" class="tm-site-icon" style="width: 60px; height: 60px;">
+                        </a>
+                        <h1 class="tm-site-title mb-0">Gallery</h1>
+                    </div>
+                    <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Dashboard
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tasks.html">Tasks</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="gallery.html">Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-12">
+                <div class="bg-white tm-block">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="tm-block-title d-inline-block">Gallery - Stern Kittel</h2>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <img src="img/gallery/''™''.jpg" alt="Gallery Image" class="img-fluid gallery-img" onclick="openLightbox(this.src)">
+                            <p class="text-center mt-3">"™"</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <img src="img/gallery/Landscape in the Rissengebirge - Mosaic.jpg" alt="Landscape in the Rissengebirge - Mosaic" class="img-fluid gallery-img" onclick="openLightbox(this.src)">
+                            <p class="text-center mt-3">Landscape in the Rissengebirge Mosaic</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <img src="img/gallery/Ophelia_Matte.jpg" alt="Ophelia Matte" class="img-fluid gallery-img" onclick="openLightbox(this.src)">
+                            <p class="text-center mt-3">Ophelia - Matte</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <img src="img/gallery/Pinecone.jpg" alt="Pinecone" class="img-fluid gallery-img" onclick="openLightbox(this.src)">
+                            <p class="text-center mt-3">Pinecone</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <img src="img/gallery/Seashore.jpg" alt="Seashore" class="img-fluid gallery-img" onclick="openLightbox(this.src)">
+                            <p class="text-center mt-3">Shore</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <img src="img/gallery/paradise.png" alt="Paradise" class="img-fluid gallery-img" onclick="openLightbox(this.src)">
+                            <p class="text-center mt-3">Paradise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full size image">
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = src;
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
